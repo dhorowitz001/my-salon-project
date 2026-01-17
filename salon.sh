@@ -4,7 +4,7 @@ MENU_RESULT=''
 while IFS=" | " read -r id name; do
   MENU_RESULT+="$id) $name\n"
 done < <($PSQL "SELECT service_id, name FROM services;")
-echo -e "~~~~~ MY SALON ~~~~~\n\nWelcome to My Salon, how can I help you?\n\n"
+echo -e "~~~~~ MY SALON ~~~~~\n\nWelcome to My Salon, how can I help you?\n"
 printf "%b" "$MENU_RESULT"
 #prompt for service id, phone, name, time
 while true; do
@@ -14,7 +14,7 @@ while true; do
   SERVICE_RESULT=$($PSQL "SELECT name FROM services WHERE service_id=$SERVICE_ID_SELECTED")
     break  # Valid service ID entered, exit the loop
   else
-    echo -e "I could not find that service. What would you like today?\n\n"
+    echo -e "\nI could not find that service. What would you like today?"
     printf "%b" "$MENU_RESULT"
   fi
 done
