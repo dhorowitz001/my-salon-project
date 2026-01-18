@@ -42,7 +42,7 @@ while true; do
 done
 CUSTOMER_NAME_RESULT=$($PSQL "SELECT name FROM customers WHERE phone='$CUSTOMER_PHONE'")
 CUSTOMER_ID_RESULT=$($PSQL "SELECT customer_id FROM customers WHERE phone='$CUSTOMER_PHONE'"  --tuples-only --no-align)
-echo -e "\nWhat time would you like your $SERVICE_RESULT, $CUSTOMER_NAME_RESULT?:"
+echo -e "\nWhat time would you like your $SERVICE_RESULT, $CUSTOMER_NAME_RESULT?"
 read SERVICE_TIME
 while true; do
   TIME_PATTERN="^[0-9]{1,2}:[0-9]{2} ?(am|pm|AM|PM)?$"
